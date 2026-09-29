@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prakhar Bhardwaj | Anime Developer Portfolio | B-Tech CSE @ JECRC</title>
+  <meta name="description" content="Anime-themed developer portfolio of Prakhar Bhardwaj, 1st-year B.Tech CSE student at JECRC University, Jaipur. Exploring C, C++, Python, Robotics, and cutting-edge AI tools." />
+  <meta name="keywords" content="Prakhar Bhardwaj, JECRC University, B.Tech CSE, Jaipur, C++, C, Python, Robotics, RoboDog, RoboWars, AI, Anime Portfolio, Steins Gate, One Piece, Bleach, Jujutsu Kaisen, Black Clover, Erased" />
+  <meta name="author" content="Prakhar Bhardwaj" />
+
+  <!-- Favicon (Anime Energy Emblem) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+  <!-- Google Fonts: Outfit, JetBrains Mono, Cinzel & Share Tech Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <!-- RemixIcon for Clean UI Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-anime bg-dark text-slate-100 antialiased selection:bg-rose-500 selection:text-white">
+
+  <!-- Interactive Spiritual Pressure / Divergence Canvas -->
+  <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Glowing Auras -->
+  <div class="ambient-auras" aria-hidden="true">
+    <div class="aura-orb aura-bleach"></div>
+    <div class="aura-orb aura-onepiece"></div>
+    <div class="aura-orb aura-steinsgate"></div>
+    <div class="aura-orb aura-jjk"></div>
+  </div>
+
+  <!-- Audio & Sound FX Status Toast -->
+  <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <i class="ri-checkbox-circle-fill text-emerald-400 text-xl" id="toast-icon"></i>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navbar-wrapper" id="navbar">
+    <nav class="navbar container mx-auto">
+      <a href="#hero" class="brand-logo" aria-label="Prakhar Bhardwaj Portfolio Home">
+        <span class="logo-symbol">
+          <svg viewBox="0 0 40 40" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="currentColor" stroke-width="2.5" fill="rgba(244, 63, 94, 0.15)" />
+            <text x="20" y="25" text-anchor="middle" font-family="'Cinzel', serif" font-weight="900" font-size="15" fill="#f43f5e">PB</text>
+          </svg>
+        </span>
+        <div class="logo-text">
+          <span class="logo-name">Prakhar<span class="text-rose-500">.dev</span></span>
+          <span class="logo-subtitle">Lab Member 008 // JECRC</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active"><i class="ri-home-5-line"></i> Nexus</a></li>
+        <li><a href="#about" class="nav-link"><i class="ri-user-star-line"></i> About</a></li>
+        <li><a href="#skills" class="nav-link"><i class="ri-book-mark-line"></i> Grimoire</a></li>
+        <li><a href="#projects" class="nav-link"><i class="ri-sword-line"></i> Domains</a></li>
+        <li><a href="#timeline" class="nav-link"><i class="ri-film-line"></i> Revival</a></li>
+        <li><a href="#contact" class="nav-link"><i class="ri-broadcast-line"></i> Comms</a></li>
+      </ul>
+
+      <!-- Navbar Controls: Sound FX Toggle, Bounty Trigger & Mobile Menu -->
+      <div class="nav-actions">
+        <button id="sound-toggle" class="btn-icon" aria-label="Toggle Anime Sound FX" title="Toggle Sound Effects">
+          <i class="ri-volume-up-line" id="sound-icon"></i>
+          <span class="sound-indicator on"></span>
+        </button>
+
+        <button id="btn-bounty-quick" class="btn btn-sm btn-bounty hidden-mobile" title="View Pirate Bounty">
+          <i class="ri-treasure-map-line"></i> Bounty: ฿3B
+        </button>
+
+        <a href="#contact" class="btn btn-sm btn-glow hidden-mobile">
+          <i class="ri-send-plane-fill"></i> Transponder
+        </a>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i class="ri-menu-4-line text-2xl"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-header">
+        <span class="text-rose-400 font-cinzel font-bold">ANIME PORTFOLIO NEXUS</span>
+        <button id="mobile-menu-close" class="btn-icon" aria-label="Close Menu">
+          <i class="ri-close-line text-xl"></i>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#hero" class="mobile-nav-link"><i class="ri-home-5-line"></i> Nexus (Hero)</a></li>
+        <li><a href="#about" class="mobile-nav-link"><i class="ri-user-star-line"></i> About (Aesthetic)</a></li>
+        <li><a href="#skills" class="mobile-nav-link"><i class="ri-book-mark-line"></i> Grimoire (Skills)</a></li>
+        <li><a href="#projects" class="mobile-nav-link"><i class="ri-sword-line"></i> Domains (Projects)</a></li>
+        <li><a href="#timeline" class="mobile-nav-link"><i class="ri-film-line"></i> Revival (Journey)</a></li>
+        <li><a href="#contact" class="mobile-nav-link"><i class="ri-broadcast-line"></i> Comms (Contact)</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <div class="mobile-socials">
+          <a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="social-chip">
+            <i class="ri-github-fill"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/prakhar-bhardwaj-493285427/" target="_blank" rel="noopener noreferrer" class="social-chip">
+            <i class="ri-linkedin-box-fill"></i> LinkedIn
+          </a>
+        </div>
+        <p class="text-xs text-slate-400 mt-2 font-mono">Divergence: 1.048596% // Steins Gate</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- HERO SECTION: Pop of Bleach, One Piece & Steins;Gate             -->
+    <!-- ================================================================= -->
+    <section id="hero" class="hero-section">
+      <!-- Bleach Reiatsu Slash Visual Decor -->
+      <div class="getsuga-slash-bg" aria-hidden="true"></div>
+
+      <div class="container mx-auto hero-container">
+        
+        <!-- Left Column: Character Intro & Universe Badges -->
+        <div class="hero-content">
+
+          <!-- Anime Mashup Banner -->
+          <div class="anime-universe-pills">
+            <span class="anime-pill bleach" title="Bleach: Reiatsu & Bankai Spirit">
+              <i class="ri-sword-fill"></i> Bleach
+            </span>
+            <span class="anime-pill onepiece" title="One Piece: Will of D & Pirate Spirit">
+              <i class="ri-anchor-fill"></i> One Piece
+            </span>
+            <span class="anime-pill steinsgate" title="Steins;Gate: Divergence & Future Gadget Lab">
+              <i class="ri-timer-flash-fill"></i> Steins;Gate
+            </span>
+          </div>
+
+          <!-- Student Title & Status -->
+          <div class="status-badge-container">
+            <div class="status-badge">
+              <span class="status-dot pulse-glow"></span>
+              <span class="font-mono text-xs tracking-wide">B-Tech 1st Year @ <strong>JECRC University</strong></span>
+            </div>
+            <div class="divergence-mini-chip" title="Click to shift worldline" id="divergence-trigger">
+              <span class="nixie-label">WORLDLINE:</span>
+              <span class="nixie-val" id="mini-divergence">1.048596%</span>
+            </div>
+          </div>
+
+          <!-- Hero Main Heading -->
+          <h1 class="hero-title">
+            <span class="hero-greeting font-cinzel">AWAKEN THE CODE</span>
+            <span class="hero-name">I'm <span class="gradient-text-anime">Prakhar Bhardwaj</span></span>
+          </h1>
+
+          <!-- Dynamic Typing Text -->
+          <div class="typing-container font-mono">
+            <span class="prompt-arrow">&gt;</span>
+            <span id="typed-text" class="typed-text"></span>
+            <span class="typing-cursor"></span>
+          </div>
+
+          <!-- Hero Subtitle & Mission Statement -->
+          <p class="hero-desc">
+            Engineering robust systems with low-level raw power in <strong>C & C++</strong>, robotics control in <strong>RoboDog & RoboWars</strong>, agile automation in <strong>Python</strong>, and unlocking the next frontier of <strong>Generative AI & Autonomous Tools</strong>. 
+            Blending the battle tenacity of Shonen with engineering precision.
+          </p>
+
+          <!-- Call to Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary btn-bankai" id="btn-bankai">
+              <span class="btn-shine"></span>
+              <i class="ri-flashlight-fill"></i> Enter Domains
+            </a>
+
+            <button class="btn btn-secondary btn-wanted" id="btn-open-wanted" title="Inspect Wanted Poster">
+              <i class="ri-treasure-map-line text-amber-400"></i> Wanted: ฿3,000,000,000
+            </button>
+
+            <div class="hero-social-links">
+              <a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub Profile" title="GitHub: prakhar1305">
+                <i class="ri-github-fill"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/prakhar-bhardwaj-493285427/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin-btn" aria-label="LinkedIn Profile" title="LinkedIn: Prakhar Bhardwaj">
+                <i class="ri-linkedin-fill"></i>
+              </a>
+              <button class="social-btn copy-email-btn" id="hero-copy-email" aria-label="Copy Email" title="Copy prakhar.26bcon2079@jecrc.edu.in">
+                <i class="ri-mail-copy-line"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Steins;Gate Divergence Meter Showcase -->
+          <div class="steins-meter-wrapper" id="steins-meter">
+            <div class="meter-header">
+              <span class="meter-title font-mono"><i class="ri-cpu-line"></i> STEINS;GATE DIVERGENCE METER</span>
+              <button class="meter-reroll-btn" id="reroll-worldline" title="Shift Worldline">
+                <i class="ri-refresh-line"></i> Shift Timeline
+              </button>
+            </div>
+            <div class="nixie-display" id="nixie-display">
+              <div class="nixie-tube active"><span class="digit">1</span></div>
+              <div class="nixie-tube active dot"><span class="digit">.</span></div>
+              <div class="nixie-tube active"><span class="digit">0</span></div>
+              <div class="nixie-tube active"><span class="digit">4</span></div>
+              <div class="nixie-tube active"><span class="digit">8</span></div>
+              <div class="nixie-tube active"><span class="digit">5</span></div>
+              <div class="nixie-tube active"><span class="digit">9</span></div>
+              <div class="nixie-tube active"><span class="digit">6</span></div>
+            </div>
+            <div class="meter-footer">
+              <span class="target-timeline">Status: <strong>Steins Gate Unlocked (Ideal Reality)</strong></span>
+              <span class="lab-quote font-mono">"El Psy Kongroo"</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Wanted Poster & Bleach Reiatsu Core -->
+        <div class="hero-visual">
+          
+          <!-- One Piece Wanted Bounty Card (Strictly Prakhar Bhardwaj) -->
+          <div class="wanted-poster-card" id="wanted-poster-preview">
+            <div class="wanted-pin" aria-hidden="true"></div>
+            <div class="wanted-inner">
+              <div class="wanted-header-title">WANTED</div>
+              
+              <!-- Character Artwork Frame -->
+              <div class="wanted-image-frame">
+                <div class="wanted-avatar-art">
+                  <!-- Scalable Anime Cyberpunk Avatar Illustration -->
+                  <svg viewBox="0 0 200 200" class="anime-hero-svg" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#1e1b4b" />
+                        <stop offset="50%" stop-color="#312e81" />
+                        <stop offset="100%" stop-color="#0f172a" />
+                      </linearGradient>
+                      <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#38bdf8" />
+                        <stop offset="100%" stop-color="#ec4899" />
+                      </linearGradient>
+                    </defs>
+                    <!-- Background -->
+                    <rect width="200" height="200" fill="url(#bgGrad)" />
+                    <!-- Reiatsu Spiral Rings -->
+                    <circle cx="100" cy="100" r="75" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.4" />
+                    <circle cx="100" cy="100" r="55" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5" />
+                    <!-- Straw Hat Silhouette on top -->
+                    <ellipse cx="100" cy="62" rx="48" ry="12" fill="#d97706" />
+                    <ellipse cx="100" cy="56" rx="26" ry="18" fill="#f59e0b" />
+                    <rect x="74" y="54" width="52" height="6" fill="#dc2626" rx="3" />
+                    <!-- Hair -->
+                    <path d="M 68 85 Q 85 68 100 70 Q 115 68 132 85 Q 120 110 115 125 Q 100 135 85 125 Z" fill="#1e293b" />
+                    <path d="M 72 85 Q 80 100 88 115" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none" />
+                    <path d="M 128 85 Q 120 100 112 115" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" fill="none" />
+                    <!-- Face -->
+                    <polygon points="85,90 115,90 110,118 100,128 90,118" fill="#fed7aa" />
+                    <!-- Anime Eyes & Visor -->
+                    <rect x="88" y="96" width="10" height="4" rx="2" fill="#0f172a" />
+                    <rect x="102" y="96" width="10" height="4" rx="2" fill="#0f172a" />
+                    <circle cx="93" cy="98" r="1.5" fill="#38bdf8" />
+                    <circle cx="107" cy="98" r="1.5" fill="#f43f5e" />
+                    <!-- Katana Behind Back -->
+                    <line x1="30" y1="180" x2="170" y2="40" stroke="url(#bladeGrad)" stroke-width="4" stroke-linecap="round" />
+                    <line x1="165" y1="45" x2="175" y2="35" stroke="#e2e8f0" stroke-width="7" stroke-linecap="square" />
+                    <circle cx="160" cy="50" r="5" fill="#fbbf24" />
+                    <!-- Developer Cloak & Collar -->
+                    <path d="M 60 190 Q 100 130 140 190 Z" fill="#0f172a" stroke="#475569" stroke-width="2" />
+                    <!-- Tech Runes on Cloak -->
+                    <text x="100" y="170" font-family="'JetBrains Mono', monospace" font-size="11" fill="#38bdf8" text-anchor="middle" font-weight="bold">&lt;C++ / Robotics&gt;</text>
+                  </svg>
+                  <div class="wanted-seal">DEAD OR ALIVE</div>
+                </div>
+              </div>
+
+              <!-- Name strictly Prakhar Bhardwaj -->
+              <div class="wanted-name-box">
+                <h3 class="wanted-pirate-name font-cinzel">PRAKHAR BHARDWAJ</h3>
+                <span class="wanted-epithet font-mono">"THE COMPILER PIRATE // SOUL REAPER OF BUGS"</span>
+              </div>
+
+              <!-- Bounty Amount -->
+              <div class="wanted-bounty-row">
+                <span class="berry-symbol">฿</span>
+                <span class="bounty-number font-mono">3,000,000,000</span>
+                <span class="bounty-dash">-</span>
+              </div>
+
+              <!-- Footer Stamp -->
+              <div class="wanted-footer-stamp">
+                <span>MARINE HEADQUARTERS // JECRC UNIVERSITY GUILD</span>
+              </div>
+            </div>
+
+            <!-- Bleach Spirit Pressure Tag -->
+            <div class="bleach-subtag">
+              <span class="zanpakuto-name"><i class="ri-sword-line"></i> Zanpakuto: <em>Algorithmic Blade</em></span>
+              <span class="bankai-status">Bankai: <strong>Active</strong></span>
+            </div>
+          </div>
+
+          <!-- Quick Floating Specs -->
+          <div class="hero-floating-badge top-right">
+            <i class="ri-fire-fill text-amber-400"></i>
+            <div>
+              <div class="badge-title">Primary Weapons</div>
+              <div class="badge-desc font-mono">C • C++ • Python • Robotics</div>
+            </div>
+          </div>
+
+          <div class="hero-floating-badge bottom-left">
+            <i class="ri-brain-line text-rose-400"></i>
+            <div>
+              <div class="badge-title">Active Quest</div>
+              <div class="badge-desc font-mono">Robotics, AI & New Languages</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <a href="#about" class="scroll-down-indicator" aria-label="Scroll to About Section">
+        <span class="scroll-text font-mono">PROCEED TO DOSSIER</span>
+        <i class="ri-arrow-down-double-line"></i>
+      </a>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- ABOUT SECTION: Aesthetic & Professional Themed                   -->
+    <!-- ================================================================= -->
+    <section id="about" class="about-section">
+      <div class="container mx-auto">
+        
+        <!-- Section Header: Elegant & Executive -->
+        <div class="section-header aesthetic-header">
+          <div class="aesthetic-tag">
+            <span class="aesthetic-dot"></span>
+            <span>ACADEMIC DOSSIER & PROFILE</span>
+          </div>
+          <h2 class="section-title aesthetic-title">
+            Engineering with Discipline.<br />
+            <span class="aesthetic-gradient">Driven by Pure Curiosity.</span>
+          </h2>
+          <p class="section-subtitle aesthetic-subtitle">
+            A comprehensive overview of my academic foundation at JECRC University, technical core in low-level systems and competitive robotics, and passionate trajectory into modern Artificial Intelligence.
+          </p>
+        </div>
+
+        <!-- Main About Grid: Sleek Glassmorphic Bento Cards -->
+        <div class="about-bento-grid">
+          
+          <!-- Large Feature Card: Academic & Engineering Identity -->
+          <div class="bento-card bento-profile">
+            <div class="bento-badge">
+              <i class="ri-graduation-cap-line"></i> Undergraduate Student
+            </div>
+            <h3 class="bento-headline font-cinzel">Prakhar Bhardwaj</h3>
+            <p class="bento-role font-mono text-rose-400">1st Year B-Tech CSE Core &bull; JECRC University, Jaipur</p>
+            
+            <div class="bento-bio-text">
+              <p>
+                I am currently in my first year of Computer Science & Engineering at <strong>JECRC University, Jaipur</strong> (2024–2028). 
+                From the moment I wrote my first lines of code, I became fascinated by how logic, memory pointers, and hardware instructions translate into real-world machines.
+              </p>
+              <p>
+                My foundation began with <strong>C and C++</strong>, where I developed a deep appreciation for low-level memory management, deterministic execution, and robotics kinematics. 
+                I apply these skills practically in autonomous robotics projects like <strong>RoboDog</strong> and competitive high-torque <strong>RoboWars</strong> combat machines.
+              </p>
+              <p>
+                Simultaneously, I use <strong>Python</strong> for agile scripting, automation, and computer vision pipelines. Right now, I am intensely excited about unlocking <strong>emerging programming languages</strong>, mastering <strong>Data Structures & Algorithms</strong>, and harnessing <strong>modern AI tools</strong> to engineer autonomous intelligent systems.
+              </p>
+            </div>
+
+            <!-- Professional Highlights Pills -->
+            <div class="bento-pills-row">
+              <span class="bento-pill"><i class="ri-map-pin-2-line"></i> Jaipur, Rajasthan</span>
+              <span class="bento-pill"><i class="ri-book-read-line"></i> CSE Core Batch 2024–2028</span>
+              <span class="bento-pill"><i class="ri-terminal-box-line"></i> C, C++, Python</span>
+              <span class="bento-pill"><i class="ri-robot-line"></i> Robotics (RoboDog / RoboWars)</span>
+              <span class="bento-pill"><i class="ri-sparkling-fill"></i> AI & LLM Workflows</span>
+            </div>
+
+            <div class="bento-actions">
+              <a href="https://www.linkedin.com/in/prakhar-bhardwaj-493285427/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-aesthetic-primary">
+                <i class="ri-linkedin-box-fill"></i> View LinkedIn Dossier
+              </a>
+              <a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-aesthetic-secondary">
+                <i class="ri-github-fill"></i> GitHub Repositories
+              </a>
+            </div>
+          </div>
+
+          <!-- Side Card 1: Key Metrics & Stats -->
+          <div class="bento-card bento-stats">
+            <h4 class="bento-card-title"><i class="ri-line-chart-line text-emerald-400"></i> Core Metrics</h4>
+            <div class="stats-mini-grid">
+              <div class="stat-box">
+                <span class="stat-number">3+</span>
+                <span class="stat-label">Core Languages (C, C++, Python)</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">1st</span>
+                <span class="stat-label">Year B-Tech at JECRC University</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Featured Projects (Robotics & Software)</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Curiosity & Passion for AI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Card 2: Core Philosophy -->
+          <div class="bento-card bento-philosophy">
+            <h4 class="bento-card-title"><i class="ri-compass-3-line text-amber-400"></i> Engineering Philosophy</h4>
+            <blockquote class="philosophy-quote">
+              "Master the machine at its lowest foundational level, build physical robots that move, then elevate them with the limitless creativity of artificial intelligence."
+            </blockquote>
+            <ul class="aesthetic-check-list">
+              <li><i class="ri-check-line"></i> Clean, deterministic, and strictly typed code</li>
+              <li><i class="ri-check-line"></i> Hands-on hardware & robotics experimentation</li>
+              <li><i class="ri-check-line"></i> Relentless consistency & learning new tools</li>
+            </ul>
+          </div>
+
+          <!-- Bottom Card: Current Focus & Learning Trajectory -->
+          <div class="bento-card bento-focus-banner">
+            <div class="focus-icon-box">
+              <i class="ri-radar-line text-cyan-400"></i>
+            </div>
+            <div class="focus-content">
+              <h4 class="focus-title">Active Learning Frontier & AI Exploration</h4>
+              <p class="focus-desc">
+                Currently exploring advanced C++ STL paradigms, inverse kinematics for quadruped robotics, Python automation pipelines, prompt engineering patterns, and autonomous agent frameworks. Always excited to collaborate on ambitious robotics hackathons and open-source initiatives.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SKILLS SECTION: Black Clover Themed (Grimoire Magic)              -->
+    <!-- ================================================================= -->
+    <section id="skills" class="skills-section">
+      <div class="container mx-auto">
+
+        <!-- Black Clover Header -->
+        <div class="section-header anime-header">
+          <div class="anime-section-tag bc-tag">
+            <span class="clover-icon">☘</span> BLACK CLOVER ARCHIVE: GRIMOIRE TOWER
+          </div>
+          <h2 class="section-title font-cinzel">
+            "My Magic is <span class="text-amber-400">Never Giving Up!</span>"
+          </h2>
+          <p class="section-subtitle">
+            Just like Magic Knights in the Clover Kingdom receive Grimoires matched to their affinity, here are the languages, robotics skills, and spells I wield in the world of computer science.
+          </p>
+        </div>
+
+        <!-- Grimoire Cards Grid -->
+        <div class="grimoires-grid">
+
+          <!-- Grimoire 1: C & C++ (5-Leaf Clover / Anti-Magic Sword) -->
+          <div class="grimoire-card grimoire-antimagic">
+            <div class="grimoire-spine" aria-hidden="true"></div>
+            <div class="grimoire-cover">
+              
+              <div class="grimoire-header">
+                <span class="clover-seal five-leaf" title="5th Leaf: The Devil & Anti-Magic">
+                  ☘☘☘☘☘ 5-LEAF
+                </span>
+                <span class="knight-rank">SENIOR MAGE</span>
+              </div>
+
+              <div class="grimoire-title-block">
+                <h3 class="grimoire-name font-cinzel">Grimoire of Anti-Magic: C & C++</h3>
+                <span class="grimoire-affinity font-mono">Raw Compute // Zero-Overhead Execution & Robotics</span>
+              </div>
+
+              <p class="grimoire-desc">
+                Like Asta's Demon-Slayer sword slicing through complex spells, C and C++ cut directly through memory overhead, driving microcontroller hardware and complex robotics with zero latency.
+              </p>
+
+              <!-- Spells / Skill List -->
+              <div class="spells-list">
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-sword-line"></i> Pointers & Manual Memory Allocation</span>
+                    <span class="spell-power font-mono">Foundational</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-cpu-line"></i> Object-Oriented C++ (OOP & Classes)</span>
+                    <span class="spell-power font-mono">High Affinity</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress" style="width: 82%;"></div></div>
+                </div>
+
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-robot-line"></i> Embedded Robotics Firmware (RoboDog & Wars)</span>
+                    <span class="spell-power font-mono">Proficient</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-brackets-line"></i> Structs & Pointer Arithmetic</span>
+                    <span class="spell-power font-mono">Mastered</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress" style="width: 90%;"></div></div>
+                </div>
+              </div>
+
+              <div class="grimoire-footer">
+                <span class="grimoire-tag">Low-Level Mastery</span>
+                <span class="grimoire-tag">Deterministic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grimoire 2: Python (4-Leaf Clover / Wind & Spatial Magic) -->
+          <div class="grimoire-card grimoire-wind">
+            <div class="grimoire-spine" aria-hidden="true"></div>
+            <div class="grimoire-cover">
+              
+              <div class="grimoire-header">
+                <span class="clover-seal four-leaf" title="4th Leaf: Good Fortune & Wind">
+                  ☘☘☘☘ 4-LEAF
+                </span>
+                <span class="knight-rank">MAGIC KNIGHT</span>
+              </div>
+
+              <div class="grimoire-title-block">
+                <h3 class="grimoire-name font-cinzel">Grimoire of Wind: Python</h3>
+                <span class="grimoire-affinity font-mono">Agile Scripting // Prototyping & Telemetry</span>
+              </div>
+
+              <p class="grimoire-desc">
+                Like Yuno's agile Wind Magic traversing battlefields effortlessly, Python allows rapid development, expressive automation scripts, and robotics telemetry dashboards.
+              </p>
+
+              <!-- Spells / Skill List -->
+              <div class="spells-list">
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-wind-line"></i> File Handling & OS Automation</span>
+                    <span class="spell-power font-mono">Advanced</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress wind-bar" style="width: 82%;"></div></div>
+                </div>
+
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-code-s-slash-line"></i> Pythonic Data Structures & Comprehensions</span>
+                    <span class="spell-power font-mono">Proficient</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress wind-bar" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-dashboard-2-line"></i> Serial Telemetry & Data Logging</span>
+                    <span class="spell-power font-mono">Active</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress wind-bar" style="width: 75%;"></div></div>
+                </div>
+
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-links-line"></i> Web Scraping & REST APIs (Requests)</span>
+                    <span class="spell-power font-mono">Practicing</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress wind-bar" style="width: 72%;"></div></div>
+                </div>
+              </div>
+
+              <div class="grimoire-footer">
+                <span class="grimoire-tag">High Productivity</span>
+                <span class="grimoire-tag">Clean Syntax</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grimoire 3: AI Tools & Modern Workflow (Forbidden Time Magic) -->
+          <div class="grimoire-card grimoire-time">
+            <div class="grimoire-spine" aria-hidden="true"></div>
+            <div class="grimoire-cover">
+              
+              <div class="grimoire-header">
+                <span class="clover-seal forbidden-seal" title="Forbidden Time Magic: Reshaping Reality">
+                  ⚡ FORBIDDEN
+                </span>
+                <span class="knight-rank">WIZARD KING TIER</span>
+              </div>
+
+              <div class="grimoire-title-block">
+                <h3 class="grimoire-name font-cinzel">Grimoire of AI & Modern Tools</h3>
+                <span class="grimoire-affinity font-mono">Generative Intelligence // Supercharged Output</span>
+              </div>
+
+              <p class="grimoire-desc">
+                Like Julius Novachrono's Time Magic bending reality, modern AI tools compress hours of manual debugging and boilerplate generation into seconds of focused architectural synthesis.
+              </p>
+
+              <!-- Spells / Skill List -->
+              <div class="spells-list">
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-sparkling-2-line"></i> Advanced LLM Prompt Engineering</span>
+                    <span class="spell-power font-mono">High Aptitude</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress time-bar" style="width: 88%;"></div></div>
+                </div>
+
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-robot-2-line"></i> AI-Assisted Debugging & Code Generation</span>
+                    <span class="spell-power font-mono">Daily Workflow</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress time-bar" style="width: 90%;"></div></div>
+                </div>
+
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-git-branch-line"></i> Git, GitHub & Modern CLI Environments</span>
+                    <span class="spell-power font-mono">Proficient</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress time-bar" style="width: 78%;"></div></div>
+                </div>
+
+                <div class="spell-item">
+                  <div class="spell-info">
+                    <span class="spell-name"><i class="ri-terminal-window-line"></i> Agentic Tooling & Autonomous Assistants</span>
+                    <span class="spell-power font-mono">Passionate</span>
+                  </div>
+                  <div class="spell-bar"><div class="spell-progress time-bar" style="width: 85%;"></div></div>
+                </div>
+              </div>
+
+              <div class="grimoire-footer">
+                <span class="grimoire-tag">Next-Gen Speed</span>
+                <span class="grimoire-tag">Future Ready</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grimoire 4: Unlocking New Languages & Future Spells -->
+          <div class="grimoire-card grimoire-unsealed">
+            <div class="grimoire-spine" aria-hidden="true"></div>
+            <div class="grimoire-cover">
+              
+              <div class="grimoire-header">
+                <span class="clover-seal unsealed-seal" title="Future Spells to Unlock">
+                  🔓 UNLOCKING
+                </span>
+                <span class="knight-rank">ROADMAP 2025+</span>
+              </div>
+
+              <div class="grimoire-title-block">
+                <h3 class="grimoire-name font-cinzel">Unsealed Spells & Future Horizons</h3>
+                <span class="grimoire-affinity font-mono">Actively Learning & Expanding</span>
+              </div>
+
+              <p class="grimoire-desc">
+                An ambitious engineer never stops training. These are the languages, frameworks, and domains currently being deciphered.
+              </p>
+
+              <!-- Future Spells Grid -->
+              <div class="future-spells-grid">
+                <div class="future-spell-chip">
+                  <i class="ri-shield-flash-line text-rose-400"></i>
+                  <div>
+                    <span class="chip-title">Rust & Systems Safety</span>
+                    <span class="chip-status">Target Language</span>
+                  </div>
+                </div>
+                <div class="future-spell-chip">
+                  <i class="ri-html5-line text-amber-400"></i>
+                  <div>
+                    <span class="chip-title">Full-Stack Web Tech</span>
+                    <span class="chip-status">HTML / CSS / JS</span>
+                  </div>
+                </div>
+                <div class="future-spell-chip">
+                  <i class="ri-node-tree text-emerald-400"></i>
+                  <div>
+                    <span class="chip-title">Advanced DSA</span>
+                    <span class="chip-status">Trees / Graphs / DP</span>
+                  </div>
+                </div>
+                <div class="future-spell-chip">
+                  <i class="ri-brain-line text-purple-400"></i>
+                  <div>
+                    <span class="chip-title">Deep Learning & PyTorch</span>
+                    <span class="chip-status">AI Engineering</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grimoire-footer">
+                <span class="grimoire-tag">Infinite Growth</span>
+                <span class="grimoire-tag">Always Evolving</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- PROJECTS SECTION: Jujutsu Kaisen Themed (Domain Expansion)       -->
+    <!-- Includes: RoboDog, RoboWars, AlgoCraft, PyAutomate, AI Sensei     -->
+    <!-- ================================================================= -->
+    <section id="projects" class="projects-section">
+      <div class="container mx-auto">
+
+        <!-- JJK Header -->
+        <div class="section-header anime-header">
+          <div class="anime-section-tag jjk-tag">
+            <span class="curse-symbol">領域展開</span> JUJUTSU KAISEN: DOMAIN EXPANSION
+          </div>
+          <h2 class="section-title font-cinzel">
+            Special Grade <span class="text-rose-500">Cursed Techniques</span>
+          </h2>
+          <p class="section-subtitle">
+            Expanding the boundaries of software and physical robotics. When focus reaches 120% potential, digital domains manifest into autonomous systems.
+          </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="domains-grid">
+
+          <!-- PROJECT 1: RoboDog (Domain: Ten Shadows / Divine Dog) -->
+          <div class="domain-card domain-gojo">
+            <div class="domain-glow-border"></div>
+            <div class="domain-content">
+              
+              <div class="domain-badge-bar">
+                <span class="grade-badge special-grade"><i class="ri-shield-star-line"></i> SPECIAL GRADE ROBOTICS</span>
+                <span class="domain-kanji">玉犬</span>
+              </div>
+
+              <h3 class="domain-title font-cinzel">Domain: Divine Dog (RoboDog)</h3>
+              <p class="domain-subtitle font-mono text-cyan-400">Autonomous Quadruped Robotic Hound & Kinematics Engine</p>
+
+              <p class="domain-desc">
+                Inspired by Megumi Fushiguro's Ten Shadows Divine Dog. An autonomous 4-legged quadruped robot with 12 degrees of freedom (DOF), powered by inverse kinematics (IK) in C++ and obstacle avoidance sensors.
+              </p>
+
+              <div class="tech-tags-list">
+                <span class="tech-tag"><i class="ri-code-box-line"></i> C++ Embedded</span>
+                <span class="tech-tag"><i class="ri-compass-3-line"></i> Inverse Kinematics</span>
+                <span class="tech-tag"><i class="ri-cpu-line"></i> ESP32 / Arduino</span>
+                <span class="tech-tag"><i class="ri-radar-line"></i> Ultrasonic / LiDAR</span>
+                <span class="tech-tag"><i class="ri-terminal-box-line"></i> Python Telemetry</span>
+              </div>
+
+              <div class="domain-features">
+                <div class="domain-feature-row"><i class="ri-check-double-line text-cyan-400"></i> Mathematical Inverse Kinematics for smooth quadruped trotting</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-cyan-400"></i> Real-time ultrasonic obstacle mapping with autonomous pathing</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-cyan-400"></i> Wireless Python GUI for live joint telemetry & joystick control</div>
+              </div>
+
+              <div class="domain-card-actions">
+                <button class="btn btn-sm btn-domain-view" data-project="robodog">
+                  <i class="ri-eye-line"></i> View Architecture
+                </button>
+                <a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-domain-github">
+                  <i class="ri-github-fill"></i> Source Code
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- PROJECT 2: RoboWars (Domain: Malevolent Shrine) -->
+          <div class="domain-card domain-sukuna">
+            <div class="domain-glow-border"></div>
+            <div class="domain-content">
+              
+              <div class="domain-badge-bar">
+                <span class="grade-badge special-grade"><i class="ri-fire-fill"></i> SPECIAL GRADE COMBAT</span>
+                <span class="domain-kanji">伏魔御厨子</span>
+              </div>
+
+              <h3 class="domain-title font-cinzel">Domain: Malevolent Shrine (RoboWars)</h3>
+              <p class="domain-subtitle font-mono text-rose-400">High-Torque Combat Battlebot & Telemetry System</p>
+
+              <p class="domain-desc">
+                Channeling Sukuna's merciless Cleave & Dismantle. A competitive collegiate combat robot engineered for university RoboWars arenas, featuring high-RPM spinning kinetic drums and custom fail-safe motor firmware.
+              </p>
+
+              <div class="tech-tags-list">
+                <span class="tech-tag"><i class="ri-flashlight-line"></i> High-Torque ESC</span>
+                <span class="tech-tag"><i class="ri-cpu-line"></i> C++ Motor Firmware</span>
+                <span class="tech-tag"><i class="ri-broadcast-line"></i> 2.4GHz RF Telemetry</span>
+                <span class="tech-tag"><i class="ri-battery-charge-line"></i> LiPo Power Mgmt</span>
+                <span class="tech-tag"><i class="ri-shield-cross-line"></i> Armor Stress Analysis</span>
+              </div>
+
+              <div class="domain-features">
+                <div class="domain-feature-row"><i class="ri-check-double-line text-rose-400"></i> High-kinetic energy spinning drum weapon with dual brushless drive</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-rose-400"></i> Fail-safe PWM signal watchdog ensuring instant cutoff on signal loss</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-rose-400"></i> Custom C++ motor response curve calibration for rapid evasive torque</div>
+              </div>
+
+              <div class="domain-card-actions">
+                <button class="btn btn-sm btn-domain-view" data-project="robowars">
+                  <i class="ri-eye-line"></i> View Architecture
+                </button>
+                <a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-domain-github">
+                  <i class="ri-github-fill"></i> Source Code
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- PROJECT 3: AlgoCraft (Domain: Infinite Void) -->
+          <div class="domain-card domain-gojo">
+            <div class="domain-glow-border"></div>
+            <div class="domain-content">
+              
+              <div class="domain-badge-bar">
+                <span class="grade-badge grade-one"><i class="ri-code-s-slash-line"></i> GRADE 1 TECHNIQUE</span>
+                <span class="domain-kanji">無量空処</span>
+              </div>
+
+              <h3 class="domain-title font-cinzel">Domain: Infinite Void (AlgoCraft)</h3>
+              <p class="domain-subtitle font-mono text-cyan-400">Interactive C++ Algorithm & Complexity Visualizer CLI</p>
+
+              <p class="domain-desc">
+                Much like Gojo's Infinite Void flooding the mind with boundless data, AlgoCraft visualizes every memory state mutation, swap comparison, and CPU clock cycle across sorting algorithms in real time.
+              </p>
+
+              <div class="tech-tags-list">
+                <span class="tech-tag"><i class="ri-code-box-line"></i> C++20</span>
+                <span class="tech-tag"><i class="ri-database-line"></i> STL Vector</span>
+                <span class="tech-tag"><i class="ri-terminal-line"></i> ANSI Terminal UI</span>
+                <span class="tech-tag"><i class="ri-dashboard-3-line"></i> Complexity Benchmarking</span>
+              </div>
+
+              <div class="domain-features">
+                <div class="domain-feature-row"><i class="ri-check-double-line text-cyan-400"></i> Template-based polymorphic sorting algorithms</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-cyan-400"></i> High-resolution clock benchmarking (std::chrono)</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-cyan-400"></i> Zero memory leaks using 100% smart pointers</div>
+              </div>
+
+              <div class="domain-card-actions">
+                <button class="btn btn-sm btn-domain-view" data-project="algocraft">
+                  <i class="ri-eye-line"></i> View Architecture
+                </button>
+                <a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-domain-github">
+                  <i class="ri-github-fill"></i> Source Code
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- PROJECT 4: PyAutomate (Domain: Hollow Purple) -->
+          <div class="domain-card domain-purple">
+            <div class="domain-glow-border"></div>
+            <div class="domain-content">
+              
+              <div class="domain-badge-bar">
+                <span class="grade-badge grade-one"><i class="ri-star-line"></i> GRADE 1 TECHNIQUE</span>
+                <span class="domain-kanji">虚式「茈」</span>
+              </div>
+
+              <h3 class="domain-title font-cinzel">Domain: Hollow Purple (PyAutomate)</h3>
+              <p class="domain-subtitle font-mono text-purple-400">Academic Schedule & Tech Digest Automation Engine</p>
+
+              <p class="domain-desc">
+                Merging the attraction of Blue and repulsion of Red into Purple, this suite links OS file categorization with automated university timetable reminders and AI tech news feed synthesis.
+              </p>
+
+              <div class="tech-tags-list">
+                <span class="tech-tag"><i class="ri-terminal-box-line"></i> Python 3</span>
+                <span class="tech-tag"><i class="ri-folder-zip-line"></i> OS & Pathlib</span>
+                <span class="tech-tag"><i class="ri-global-line"></i> Requests & JSON</span>
+                <span class="tech-tag"><i class="ri-notification-3-line"></i> Toast Dispatcher</span>
+              </div>
+
+              <div class="domain-features">
+                <div class="domain-feature-row"><i class="ri-check-double-line text-purple-400"></i> Smart file classification for engineering coursework</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-purple-400"></i> Lecture alert daemon triggered 15 mins before classes</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-purple-400"></i> Automated markdown morning briefing generation</div>
+              </div>
+
+              <div class="domain-card-actions">
+                <button class="btn btn-sm btn-domain-view" data-project="pyautomate">
+                  <i class="ri-eye-line"></i> View Architecture
+                </button>
+                <a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-domain-github">
+                  <i class="ri-github-fill"></i> Source Code
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- PROJECT 5: AI Code Sensei (Domain: Idle Death Gamble) -->
+          <div class="domain-card domain-gamble">
+            <div class="domain-glow-border"></div>
+            <div class="domain-content">
+              
+              <div class="domain-badge-bar">
+                <span class="grade-badge grade-one"><i class="ri-sparkling-fill"></i> GRADE 1 TECHNIQUE</span>
+                <span class="domain-kanji">座殺博徒</span>
+              </div>
+
+              <h3 class="domain-title font-cinzel">Domain: Idle Death Gamble (AI Sensei)</h3>
+              <p class="domain-subtitle font-mono text-amber-400">Interactive C++ & Python AI Concept & Bug Explainer</p>
+
+              <p class="domain-desc">
+                Hitting the jackpot in algorithmic understanding. An experimental AI developer tutor that takes complex pointer segmentation faults and explains them using structured Socratic metaphors and side-by-side memory models.
+              </p>
+
+              <div class="tech-tags-list">
+                <span class="tech-tag"><i class="ri-brain-line"></i> Prompt Engineering</span>
+                <span class="tech-tag"><i class="ri-terminal-line"></i> Python CLI</span>
+                <span class="tech-tag"><i class="ri-file-code-line"></i> Markdown Gen</span>
+                <span class="tech-tag"><i class="ri-cpu-line"></i> Memory Schematics</span>
+              </div>
+
+              <div class="domain-features">
+                <div class="domain-feature-row"><i class="ri-check-double-line text-amber-400"></i> Socratic scaffold prompts contrasting C++ with Python</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-amber-400"></i> Generates printable Markdown cheat-sheets for Notion</div>
+                <div class="domain-feature-row"><i class="ri-check-double-line text-amber-400"></i> Interactive self-test questions to reinforce learning</div>
+              </div>
+
+              <div class="domain-card-actions">
+                <button class="btn btn-sm btn-domain-view" data-project="nexai">
+                  <i class="ri-eye-line"></i> View Architecture
+                </button>
+                <a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-domain-github">
+                  <i class="ri-github-fill"></i> Source Code
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- TIMELINE SECTION: Erased (Boku dake ga Inai Machi) Themed        -->
+    <!-- ================================================================= -->
+    <section id="timeline" class="timeline-section">
+      <div class="container mx-auto">
+
+        <!-- Erased Header -->
+        <div class="section-header anime-header">
+          <div class="anime-section-tag erased-tag">
+            <span class="butterfly-icon">🦋</span> ERASED: REVIVAL (再上映)
+          </div>
+          <h2 class="section-title font-cinzel">
+            Rewinding Time, <span class="text-sky-400">Building Tomorrow</span>
+          </h2>
+          <p class="section-subtitle">
+            Like Satoru Fujinuma's "Revival" sending him back to make every second count, this timeline tracks the key turning points in my engineering voyage at JECRC University.
+          </p>
+        </div>
+
+        <!-- Film-Reel Timeline -->
+        <div class="revival-timeline">
+          <div class="timeline-film-track" aria-hidden="true"></div>
+
+          <!-- Timeline Node 1: Admitted to JECRC -->
+          <div class="timeline-node left">
+            <div class="timeline-marker">
+              <span class="butterfly-marker">🦋</span>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-time-badge font-mono">2024 &bull; REVIVAL TRIGGER</div>
+              <h3 class="timeline-title font-cinzel">Admitted to JECRC University, Jaipur</h3>
+              <p class="timeline-subtitle text-sky-400 font-mono">B-Tech Computer Science & Engineering (Core)</p>
+              <p class="timeline-text">
+                Commenced undergraduate studies at JECRC University. Decided to dedicate 100% of my energy toward building deep foundational knowledge in computer engineering, algorithmic thinking, and modern software development.
+              </p>
+              <div class="timeline-tags">
+                <span>JECRC University</span>
+                <span>B-Tech CSE</span>
+                <span>Academic Genesis</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Node 2: Conquering C -->
+          <div class="timeline-node right">
+            <div class="timeline-marker">
+              <span class="butterfly-marker">🦋</span>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-time-badge font-mono">LATE 2024 &bull; MEMORY ANCHOR</div>
+              <h3 class="timeline-title font-cinzel">Mastering C & Low-Level Memory</h3>
+              <p class="timeline-subtitle text-rose-400 font-mono">Pointers, Memory Allocation & Data Logic</p>
+              <p class="timeline-text">
+                Dived deep into the C programming language. Understood how the machine organizes memory on the stack versus the heap, mastered pointer arithmetic, manual memory allocation (`malloc`, `free`), and structural data representations.
+              </p>
+              <div class="timeline-tags">
+                <span>C Language</span>
+                <span>Pointers & Memory</span>
+                <span>Logic Building</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Node 3: The C++ Paradigm & Robotics -->
+          <div class="timeline-node left">
+            <div class="timeline-marker">
+              <span class="butterfly-marker">🦋</span>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-time-badge font-mono">EARLY 2025 &bull; THE ROBOTICS & OOP SHIFT</div>
+              <h3 class="timeline-title font-cinzel">Conquering Modern C++ & Robotics</h3>
+              <p class="timeline-subtitle text-amber-400 font-mono">Object-Oriented Programming & RoboDog Kinematics</p>
+              <p class="timeline-text">
+                Elevated from procedural C into modern C++20 and hardware programming. Designed the inverse kinematics gait for RoboDog, programmed high-torque PWM controllers for RoboWars battlebots, and built the AlgoCraft CLI visualizer.
+              </p>
+              <div class="timeline-tags">
+                <span>C++20</span>
+                <span>Robotics Firmware</span>
+                <span>RoboDog / RoboWars</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Node 4: Python & AI Tools -->
+          <div class="timeline-node right">
+            <div class="timeline-marker">
+              <span class="butterfly-marker">🦋</span>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-time-badge font-mono">CURRENT &bull; THE EXPANSION WORLDLINE</div>
+              <h3 class="timeline-title font-cinzel">Python Scripting & Generative AI</h3>
+              <p class="timeline-subtitle text-emerald-400 font-mono">Automation, Prompt Engineering & Modern Tools</p>
+              <p class="timeline-text">
+                Rapidly adopted Python for workflow automation, academic scheduling, and data manipulation. Began leveraging modern LLM and AI developer tools, studying how to build AI-augmented applications with maximum velocity.
+              </p>
+              <div class="timeline-tags">
+                <span>Python</span>
+                <span>Automation</span>
+                <span>AI Tools Explorer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Node 5: The Horizon -->
+          <div class="timeline-node left future-node">
+            <div class="timeline-marker">
+              <span class="butterfly-marker golden">✨</span>
+            </div>
+            <div class="timeline-card future-card">
+              <div class="timeline-time-badge font-mono">FUTURE &bull; THE TARGET WORLDLINE</div>
+              <h3 class="timeline-title font-cinzel">Software Architect & AI Engineer</h3>
+              <p class="timeline-subtitle text-purple-400 font-mono">Competitive Programming, Open-Source & AI Systems</p>
+              <p class="timeline-text">
+                Continuous expansion: Unlocking new languages (Rust, Web stack), mastering advanced data structures and graph algorithms, contributing to impactful open-source repositories, and building scalable software products.
+              </p>
+              <div class="timeline-tags">
+                <span>Advanced DSA</span>
+                <span>Open Source</span>
+                <span>AI Engineering</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- ANIME QUOTES OF POWER (INTERACTIVE MARQUEE & GENERATOR)           -->
+    <!-- ================================================================= -->
+    <section class="quotes-section">
+      <div class="container mx-auto">
+        <div class="quote-box">
+          <div class="quote-header">
+            <span class="quote-pill font-mono"><i class="ri-chat-quote-line"></i> ANIME SAGE TRANSMISSION</span>
+            <button id="btn-next-quote" class="btn-quote-reroll" title="Generate New Anime Quote">
+              <i class="ri-refresh-line"></i> New Quote
+            </button>
+          </div>
+          <div class="quote-body">
+            <p id="anime-quote-text" class="quote-text font-cinzel">
+              "No one knows what the future holds. That's why its potential is infinite."
+            </p>
+            <p id="anime-quote-author" class="quote-author font-mono text-rose-400">
+              — Rintaro Okabe // Steins;Gate
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- CONTACT SECTION: Anime Comms Hub / Transponder Snail              -->
+    <!-- ================================================================= -->
+    <section id="contact" class="contact-section">
+      <div class="container mx-auto">
+
+        <!-- Comms Header -->
+        <div class="section-header anime-header">
+          <div class="anime-section-tag comms-tag">
+            <i class="ri-broadcast-line"></i> GUILD COMMS BEACON
+          </div>
+          <h2 class="section-title font-cinzel">
+            Transmit a <span class="text-rose-500">Transmission</span>
+          </h2>
+          <p class="section-subtitle">
+            Whether you want to discuss engineering collaborations, C/C++ optimization, RoboDog / RoboWars robotics, Python automation, AI projects, or your favorite anime episodes — my transponder snail is always active.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Left: Direct Channels & Social Hub -->
+          <div class="contact-info-panel">
+            <h3 class="panel-title font-cinzel">Direct Communication Channels</h3>
+            <p class="panel-desc">
+              I am actively looking to connect with fellow students, engineers, mentors, and tech enthusiasts. Reach out through any of these primary channels:
+            </p>
+
+            <!-- Channel Cards -->
+            <div class="channel-cards">
+              
+              <!-- LinkedIn Card -->
+              <a href="https://www.linkedin.com/in/prakhar-bhardwaj-493285427/" target="_blank" rel="noopener noreferrer" class="channel-card linkedin-channel">
+                <div class="channel-icon">
+                  <i class="ri-linkedin-box-fill"></i>
+                </div>
+                <div class="channel-details">
+                  <span class="channel-name">LinkedIn Profile</span>
+                  <span class="channel-value">prakhar-bhardwaj-493285427</span>
+                  <span class="channel-hint">Connect for professional updates &bull; Click to open</span>
+                </div>
+                <div class="channel-arrow">
+                  <i class="ri-arrow-right-up-line"></i>
+                </div>
+              </a>
+
+              <!-- GitHub Card -->
+              <a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="channel-card github-channel">
+                <div class="channel-icon">
+                  <i class="ri-github-fill"></i>
+                </div>
+                <div class="channel-details">
+                  <span class="channel-name">GitHub Repositories</span>
+                  <span class="channel-value">prakhar1305</span>
+                  <span class="channel-hint">Explore code, commits & projects &bull; Click to open</span>
+                </div>
+                <div class="channel-arrow">
+                  <i class="ri-arrow-right-up-line"></i>
+                </div>
+              </a>
+
+              <!-- University Email Card with 1-Click Copy -->
+              <div class="channel-card email-channel" id="copy-email-card" role="button" tabindex="0" title="Click to copy email address">
+                <div class="channel-icon">
+                  <i class="ri-mail-send-line"></i>
+                </div>
+                <div class="channel-details">
+                  <span class="channel-name">University Official Email</span>
+                  <span class="channel-value font-mono">prakhar.26bcon2079@jecrc.edu.in</span>
+                  <span class="channel-hint">Click anywhere on this card to copy to clipboard</span>
+                </div>
+                <div class="channel-copy-btn">
+                  <i class="ri-file-copy-line" id="email-copy-icon"></i>
+                </div>
+              </div>
+
+              <!-- Campus Card -->
+              <div class="channel-card campus-channel">
+                <div class="channel-icon">
+                  <i class="ri-building-4-line"></i>
+                </div>
+                <div class="channel-details">
+                  <span class="channel-name">University Campus</span>
+                  <span class="channel-value">JECRC University, Jaipur</span>
+                  <span class="channel-hint">B.Tech Computer Science & Engineering (2024–2028)</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Anime Transponder Snail Easter Egg -->
+            <div class="den-den-mushi-box">
+              <div class="snail-status">
+                <span class="snail-dot"></span>
+                <span class="font-mono text-xs text-amber-300">DEN DEN MUSHI // READY TO RECEIVE</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1 font-mono">
+                "Puru puru puru... Gacha!" Transponder line is active. Send your inquiry below.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Contact Right: Interactive Transmission Form -->
+          <div class="contact-form-panel">
+            <h3 class="panel-title font-cinzel">Send Transmission</h3>
+            <p class="panel-desc">
+              Fill out this terminal form to construct a direct dispatch to Prakhar Bhardwaj:
+            </p>
+
+            <form id="contact-form" class="anime-form" novalidate>
+              <div class="form-group">
+                <label for="form-name" class="form-label font-mono"><i class="ri-user-3-line"></i> Your Name / Codename</label>
+                <input type="text" id="form-name" name="name" class="form-input" placeholder="e.g. Rintaro Okabe / Monkey D. Luffy" required />
+                <span class="form-error" id="name-error">Please state your name or callsign</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label font-mono"><i class="ri-at-line"></i> Your Return Email Address</label>
+                <input type="email" id="form-email" name="email" class="form-input" placeholder="e.g. lab@futuregadget.org" required />
+                <span class="form-error" id="email-error">Please provide a valid communication frequency (email)</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-topic" class="form-label font-mono"><i class="ri-bookmark-3-line"></i> Transmission Subject</label>
+                <select id="form-topic" name="topic" class="form-input form-select">
+                  <option value="Robotics">🤖 RoboDog / RoboWars Hardware Discussion</option>
+                  <option value="Collab">⚔️ Project Collaboration / Hackathon</option>
+                  <option value="Tech">⚡ C / C++ / Python Systems Discussion</option>
+                  <option value="AI">🤖 Generative AI Tools & Exploration</option>
+                  <option value="JECRC">🏫 JECRC University Campus Connection</option>
+                  <option value="Anime">🍥 Anime Debate (Bleach / One Piece / Steins;Gate)</option>
+                  <option value="General">💬 General Greetings & Coffee Chat</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message" class="form-label font-mono"><i class="ri-chat-1-line"></i> Transmission Message</label>
+                <textarea id="form-message" name="message" rows="5" class="form-input form-textarea" placeholder="Craft your message here..." required></textarea>
+                <span class="form-error" id="message-error">Transmission body cannot be blank</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-submit-transmission" id="btn-submit">
+                <span class="btn-shine"></span>
+                <i class="ri-send-plane-fill"></i> Dispatch Transmission
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- FOOTER                                                            -->
+  <!-- ================================================================= -->
+  <footer class="footer-wrapper">
+    <div class="container mx-auto footer-inner">
+      <div class="footer-brand">
+        <span class="font-cinzel text-lg font-bold text-white">PRAKHAR BHARDWAJ</span>
+        <span class="text-xs text-slate-400 font-mono block mt-1">B.Tech 1st Year CSE &bull; JECRC University, Jaipur</span>
+        <p class="text-xs text-slate-500 mt-2 max-w-sm">
+          Built with HTML5, CSS3 & JavaScript. Infused with the spirits of Bleach, One Piece, Steins;Gate, Black Clover, Jujutsu Kaisen, and Erased.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5 class="footer-col-title font-cinzel">Quick Teleports</h5>
+          <ul class="footer-col-links">
+            <li><a href="#hero">Hero Nexus</a></li>
+            <li><a href="#about">About Dossier</a></li>
+            <li><a href="#skills">Black Clover Grimoire</a></li>
+            <li><a href="#projects">JJK Domains</a></li>
+            <li><a href="#timeline">Erased Revival</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="footer-col-title font-cinzel">Social Grids</h5>
+          <ul class="footer-col-links">
+            <li><a href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> GitHub (prakhar1305)</a></li>
+            <li><a href="https://www.linkedin.com/in/prakhar-bhardwaj-493285427/" target="_blank" rel="noopener noreferrer"><i class="ri-linkedin-box-fill"></i> LinkedIn Profile</a></li>
+            <li><a href="mailto:prakhar.26bcon2079@jecrc.edu.in"><i class="ri-mail-line"></i> JECRC Student Mail</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom container mx-auto">
+      <div class="footer-copy font-mono text-xs text-slate-400">
+        &copy; 2024–2028 Prakhar Bhardwaj. All rights reserved. Worldline 1.048596%.
+      </div>
+      <div class="footer-easter font-mono text-xs text-rose-400">
+        "El Psy Kongroo"
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- MODALS                                                            -->
+  <!-- ================================================================= -->
+
+  <!-- Modal 1: One Piece Wanted Bounty Poster (Full View - Strictly Prakhar Bhardwaj) -->
+  <div id="modal-wanted" class="anime-modal" role="dialog" aria-modal="true" aria-labelledby="modal-wanted-title" hidden>
+    <div class="modal-backdrop" id="modal-wanted-backdrop"></div>
+    <div class="modal-container wanted-modal-box">
+      <button class="modal-close-btn" id="modal-wanted-close" aria-label="Close Wanted Poster">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <div class="wanted-poster-full">
+        <div class="wanted-pin"></div>
+        <div class="wanted-inner">
+          <div class="wanted-header-title">WANTED</div>
+          <div class="wanted-image-frame full-frame">
+            <svg viewBox="0 0 200 200" class="anime-hero-svg" xmlns="http://www.w3.org/2000/svg">
+              <rect width="200" height="200" fill="#1e1b4b" />
+              <circle cx="100" cy="100" r="75" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.4" />
+              <ellipse cx="100" cy="62" rx="48" ry="12" fill="#d97706" />
+              <ellipse cx="100" cy="56" rx="26" ry="18" fill="#f59e0b" />
+              <rect x="74" y="54" width="52" height="6" fill="#dc2626" rx="3" />
+              <path d="M 68 85 Q 85 68 100 70 Q 115 68 132 85 Q 120 110 115 125 Q 100 135 85 125 Z" fill="#1e293b" />
+              <polygon points="85,90 115,90 110,118 100,128 90,118" fill="#fed7aa" />
+              <rect x="88" y="96" width="10" height="4" rx="2" fill="#0f172a" />
+              <rect x="102" y="96" width="10" height="4" rx="2" fill="#0f172a" />
+              <circle cx="93" cy="98" r="1.5" fill="#38bdf8" />
+              <circle cx="107" cy="98" r="1.5" fill="#f43f5e" />
+              <line x1="30" y1="180" x2="170" y2="40" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+              <path d="M 60 190 Q 100 130 140 190 Z" fill="#0f172a" stroke="#475569" stroke-width="2" />
+              <text x="100" y="170" font-family="'JetBrains Mono', monospace" font-size="11" fill="#38bdf8" text-anchor="middle" font-weight="bold">&lt;C++ / Robotics&gt;</text>
+            </svg>
+            <div class="wanted-seal">DEAD OR ALIVE</div>
+          </div>
+
+          <div class="wanted-name-box">
+            <h3 id="modal-wanted-title" class="wanted-pirate-name font-cinzel">PRAKHAR BHARDWAJ</h3>
+            <span class="wanted-epithet font-mono">"THE COMPILER EMPEROR // 1ST YEAR CSE AT JECRC"</span>
+          </div>
+
+          <div class="wanted-bounty-row">
+            <span class="berry-symbol">฿</span>
+            <span class="bounty-number font-mono">3,000,000,000</span>
+            <span class="bounty-dash">-</span>
+          </div>
+
+          <div class="bounty-description-text">
+            <p>
+              Issued by the Grand Line Software Syndicate. Known abilities: Conqueror's Haki in C & C++ memory debugging, high-torque robotics engineering (RoboDog & RoboWars), lightning agility in Python automation, and relentless ambition to unlock artificial intelligence tools.
+            </p>
+          </div>
+
+          <div class="wanted-footer-stamp">
+            <span>MARINE HEADQUARTERS &bull; JECRC UNIVERSITY GUILD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Domain Architecture / Project Deep Dive -->
+  <div id="modal-project" class="anime-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title" hidden>
+    <div class="modal-backdrop" id="modal-project-backdrop"></div>
+    <div class="modal-container project-modal-box">
+      <button class="modal-close-btn" id="modal-project-close" aria-label="Close Project Architecture">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <div class="project-modal-header">
+        <span class="modal-badge-grade font-mono" id="modal-project-badge">SPECIAL GRADE</span>
+        <h3 id="modal-project-title" class="modal-title font-cinzel">Domain Architecture</h3>
+        <p id="modal-project-category" class="modal-category font-mono text-rose-400">C++ Systems & Complexity</p>
+      </div>
+
+      <div class="project-modal-body" id="modal-project-body">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="project-modal-footer">
+        <a id="modal-project-github" href="https://github.com/prakhar1305" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+          <i class="ri-github-fill"></i> View on GitHub (prakhar1305)
+        </a>
+        <button class="btn btn-sm btn-secondary" id="modal-project-dismiss">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Module -->
+  <script src="main.js"></script>
+</body>
+</html>
